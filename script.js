@@ -50,7 +50,6 @@ function createGame(width, height, oddsOfLife=15) {
             if (randNum <= oddsOfLife) {
                 color = colors[Math.floor(Math.random() * colors.length)];
                 newRow.push({ value: true, color: color });
-
             } else {
                 newRow.push({ value: false, color: "white" });
             }
@@ -259,7 +258,7 @@ function setStatus(x, y) {
     // Get the given cells current state.
     let cellStatus = game[y][x].value;
 
-    // Run through the rules and see which apply.
+    // Run through the rules and see which apply. Note that there is a one in 100 chance of a cell not being the same color as its parents.
     if (cellStatus == true) {
         // If the cell is alive.
         if (livingNeighbors < 2) {
@@ -270,7 +269,14 @@ function setStatus(x, y) {
         } else if (livingNeighbors == 2 || livingNeighbors == 3) {
             // Any live cell with two or three live neighbours lives on to the next generation.
             game[y][x].value = true;
-            game[y][x].color = mostColor;
+
+            let randNum = Math.ceil(Math.random() * 100);
+            if (randNum == 6) {
+                game[y][x].color = colors[Math.floor(Math.random() * colors.length)];
+            } else {
+                game[y][x].color = mostColor;
+            }
+
             return;
         } else if (livingNeighbors > 3) {
             // Any live cell with more than three live neighbours dies, as if by overpopulation.
@@ -283,7 +289,14 @@ function setStatus(x, y) {
         if (livingNeighbors == 3) {
             // Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
             game[y][x].value = true;
-            game[y][x].color = mostColor;
+            
+            let randNum = Math.ceil(Math.random() * 100);
+            if (randNum == 6) {
+                game[y][x].color = colors[Math.floor(Math.random() * colors.length)];
+            } else {
+                game[y][x].color = mostColor;
+            }
+
             return;
         }
     }
