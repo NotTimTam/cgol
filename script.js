@@ -5,10 +5,8 @@ let zoom = 1;
 
 window.addEventListener('wheel', function(event) {
     if (event.deltaY < 0) {
-        console.log('scrolling up');
         zoom += 0.1;
     } else if (event.deltaY > 0) {
-        console.log('scrolling down');
         zoom -= 0.1;
     }
 
@@ -227,7 +225,7 @@ function runIteration() {
 
         display(game, 5);
 
-        console.log("Ran iteration.");
+        // console.log("Ran iteration.");
 
         canRunIter = true;
         return;
