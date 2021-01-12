@@ -2,6 +2,7 @@
 const canvas = document.getElementById("display");
 const ctx = canvas.getContext("2d");
 let zoom = 1;
+let colors = ["#ef476f", "#ffd166", "#06d6a0", "#118ab2", "#073b4c"];
 
 window.addEventListener('wheel', function(event) {
     if (event.deltaY < 0) {
@@ -47,7 +48,6 @@ function createGame(width, height, oddsOfLife=15) {
             let randNum = Math.ceil(Math.random() * 100);
 
             if (randNum <= oddsOfLife) {
-                let colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
                 color = colors[Math.floor(Math.random() * colors.length)];
                 newRow.push({ value: true, color: color });
 
