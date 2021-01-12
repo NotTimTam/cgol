@@ -109,22 +109,22 @@ function getLivingNeighbors(x, y) {
     try {
         neighbors.push(game[y+1][x+1]);
     } catch {
-        console.log("error");
+        
     }
     try {
         neighbors.push(game[y+1][x-1]);
     } catch {
-        console.log("error");
+        
     }
     try {
         neighbors.push(game[y-1][x+1]);
     } catch {
-        console.log("error");
+        
     }
     try {
         neighbors.push(game[y-1][x-1]);
     } catch {
-        console.log("error");
+        
     }
 
     // Diagonal neighbors via looping. Work in progress.
