@@ -327,5 +327,5 @@ function runIteration() {
     }
 }
 
-// Run an iteration every 500 milliseconds.
-window.setInterval(runIteration, 100);
+// Run an iteration every X milliseconds.
+window.setInterval(runIteration, 50);
