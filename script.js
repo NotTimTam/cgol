@@ -21,17 +21,19 @@ window.addEventListener('wheel', function(event) {
 });
 
 function display(array, cellSize=5) {
+    // Clear canvas.
+    ctx.fillStyle = "white";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
     // Loop through each column in each row, and display a different character based on if it is alive or dead.
     for (let row = 0; row < array.length; row++) {
         for (let column = 0; column < array[row].length; column++) {
             let color;
             if (game[row][column].value == true) {
                 color = game[row][column].color;
-            } else {
-                color = "white";
+                ctx.fillStyle = color;
+                ctx.fillRect(column * cellSize, row * cellSize, cellSize, cellSize);
             }
-            ctx.fillStyle = color;
-            ctx.fillRect(column * cellSize, row * cellSize, cellSize, cellSize);
         }
     }
 }
