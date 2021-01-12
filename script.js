@@ -232,7 +232,7 @@ function getNeighborColors(x, y) {
         } catch {
         }
         
-        // Return the amount of them that are alive.
+        // Return the color most frequent between them.
         for (let i = 0; i < neighbors.length; i++) {
             if (neighbors[i] != undefined && neighbors[i].value == true) {
                 neighborColors.push(neighbors[i].color);
@@ -242,6 +242,7 @@ function getNeighborColors(x, y) {
         return mode(neighborColors);
 }
 
+// Returns the most frequent variable in an array.
 function mode(arr){
     return arr.sort((a,b) =>
           arr.filter(v => v===a).length
